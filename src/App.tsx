@@ -35,7 +35,6 @@ function App() {
     await setContactList(getAll());
   };
   const onSearchComplete = (searchList: ContactDetailType[]) => {
-    console.log("EEEEEEEEEEEEEEEEEE ", searchList);
     setContactList(searchList);
   };
 

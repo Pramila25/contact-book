@@ -17,7 +17,6 @@ export const getAll = () => {
 
 export const addContact = (contact: ContactDetailType): boolean => {
   state.contacts = [...state.contacts, contact];
-  console.log(state);
   return true;
 };
 export const updateContact = (contact: ContactDetailType): boolean => {
@@ -35,7 +34,10 @@ export const deleteContact = (contact: ContactDetailType) => {
 };
 export const searchContact = (contactName: string): ContactDetailType[] => {
   const results: ContactDetailType[] = state.contacts.filter((o) =>
-    o.firstName.concat(" ", o.lastName).toUpperCase().includes(contactName)
+    o.firstName
+      .concat(" ", o.lastName)
+      .toUpperCase()
+      .includes(contactName.toUpperCase())
   );
   return results;
 };

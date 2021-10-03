@@ -1,5 +1,6 @@
 import { group } from "console";
 import React, { useEffect, useState } from "react";
+import validator from "validator";
 
 import { Form, Button, Row, Col, Container, InputGroup } from "react-bootstrap";
 import { ContactDetailType } from "./types";
@@ -12,12 +13,11 @@ import {
 import { XCircleFill } from "react-bootstrap-icons";
 
 function AddContact({ contactDet, onFormSubmit }) {
-  console.log("@@@@@@@@@@@@@@@@@@@@@@@");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [emails, setEmails] = useState([]);
   const [newEmail, setNewEmail] = useState("");
-
+  const [emailError, setEmailError] = useState("");
   const addDetails = (e) => {
     e.preventDefault();
     let resp: boolean = false;
@@ -54,9 +54,15 @@ function AddContact({ contactDet, onFormSubmit }) {
   };
   const appendEmail = (e) => {
     e.preventDefault();
-    if (newEmail.length > 0) {
-      if (emails && emails.length > 0) setEmails([...emails, newEmail]);
-      else setEmails([newEmail]);
+
+    if (!validator.isEmail(newEmail)) {
+      setEmailError("Enter valid Email!");
+    } else {
+      if (newEmail.length > 0) {
+        if (emails && emails.length > 0) setEmails([...emails, newEmail]);
+        else setEmails([newEmail]);
+        setNewEmail("");
+      }
     }
   };
   const deleteSelected = (e, item: string) => {
@@ -68,7 +74,6 @@ function AddContact({ contactDet, onFormSubmit }) {
   };
   useEffect(() => {
     if (contactDet) {
-      console.log("@@@@@@@@@@@@dfjksdhfjkdsflh");
       setFirstName(contactDet.firstName);
       setLastName(contactDet.lastName);
       setEmails(contactDet.emails);
@@ -152,10 +157,13 @@ function AddContact({ contactDet, onFormSubmit }) {
       <Row>
         <Col>
           <Form.Control
-            type="email"
+            type="text"
             placeholder="Email"
             value={newEmail}
-            onChange={(e) => setNewEmail(e.target.value)}
+            onChange={(e) => {
+              setEmailError("");
+              setNewEmail(e.target.value);
+            }}
           />
         </Col>
         <Col>
@@ -164,10 +172,23 @@ function AddContact({ contactDet, onFormSubmit }) {
           </Button>
         </Col>
       </Row>
+      <Row>
+        {" "}
+        <pre>
+          <span
+            style={{
+              fontWeight: "bold",
+              color: "red",
+            }}
+          >
+            {emailError}
+          </span>
+        </pre>
+      </Row>
 
       <div className="actionEl">
         <Row>
-          <Col xs={2}>
+          <Col xs={3}>
             <Button variant="primary" type="submit">
               Save Contact
             </Button>
@@ -182,7 +203,7 @@ function AddContact({ contactDet, onFormSubmit }) {
               Cancel
             </Button>
           </Col>
-          <Col xs={5}></Col>
+          <Col xs={4}></Col>
           <Col xs={3}>
             <Button
               variant="outline-danger"

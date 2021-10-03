@@ -7,12 +7,7 @@ import { Search } from "react-bootstrap-icons";
 
 function SearchList({ onSearchComplete }) {
   const [searchPhrase, setSearchPhrase] = useState("");
-  const handleSearch = async (e) => {
-    console.log("###################  " + searchPhrase);
-    e.preventDefault();
-    const searchList: ContactDetailType[] = [...searchContact(searchPhrase)];
-    onSearchComplete(searchList);
-  };
+
   useEffect(() => {
     onSearchComplete(searchContact(searchPhrase));
   }, [searchPhrase]);
@@ -25,10 +20,10 @@ function SearchList({ onSearchComplete }) {
         className="form-control"
         style={{ width: "100%" }}
         type="text"
-        placeholder="Search"
+        placeholder="search"
         value={searchPhrase}
         onChange={(e) => {
-          const val = e.target.value ? e.target.value.toUpperCase() : "";
+          const val = e.target.value ? e.target.value : "";
           setSearchPhrase(val);
         }}
       />

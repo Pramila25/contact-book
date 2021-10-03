@@ -13,7 +13,6 @@ interface contactDtl {
 }
 function ContactsList(props: contactDtl) {
   const onContactSelected = () => {
-    console.log("contact selected ");
   };
   return (
     <ListGroup
