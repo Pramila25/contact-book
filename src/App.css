@@ -1,0 +1,143 @@
+.App {
+  text-align: center;
+  font: "Nunito Sans";
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+.containerClass {
+  border: 1px;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.leftmenu {
+  box-sizing: content-box;
+  background-color: #61dafb;
+  width: 30%;
+}
+.content {
+  background: #e5e5e5;
+}
+.header {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+.inline-block-child {
+  display: inline-block;
+}
+
+.invBut {
+  background-color: none !important;
+}
+.invBt .btn-primary-outline {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+.invBt:hover {
+  border: none !important;
+}
+.btn-primary {
+  border-color: transparent;
+}
+
+div.contStyle {
+  border-color: "#7797C8" !important;
+}
+.formLabel {
+  font-size: small;
+}
+div.formStyle {
+  margin-bottom: 40%;
+}
+.Container {
+  border: 1px dashed green;
+  margin-top: 8px;
+}
+.Col {
+  border: 1px solid #ccc;
+  background-color: #e0e0e0;
+}
+.contBackgrnd {
+  background-color: #e5e5e5;
+}
+.btn-primary {
+  background-color: #7797c8;
+}
+.btn-primary:hover,
+.btn-outline-info:hover {
+  background-color: #7797c8;
+  border: 1px solid #7797c8;
+  box-sizing: border-box;
+  border-radius: 4px;
+  color: white;
+}
+.btn-outline-info {
+  border: 1px solid #7797c8;
+  box-sizing: border-box;
+  border-radius: 4px;
+  color: #7797c8;
+}
+.bg-transparent:hover {
+  border: none;
+}
+.formLabel {
+  color: #999999;
+  font: "Nunito Sans";
+}
+.btn,
+::-moz-placeholder {
+  font: "Nunito Sans";
+  size: 18px;
+}
+
+.form-control {
+  width: 70%;
+}
+.spaceBtw {
+  display: inline;
+  width: 20px;
+}
+.listitemFont {
+  font: "Nunito Sans";
+  size: 16px;
+  text-align: left;
+}
+.actionEl {
+  margin-top: 300px;
+  margin-bottom: 20px;
+}
